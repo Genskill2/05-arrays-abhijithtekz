@@ -1,7 +1,6 @@
 /* Enter your solutions in this file */
 #include <stdio.h>
 
-{
 int max (int arr[], int n)  {
 
   for (int i=0;i<n-1;i++)  {
@@ -55,7 +54,24 @@ float average (int arr[], int n)  {
     if (swap==0)
       break;
   }
-  int sum = 0;
+ int mode(int arr[], int n)
+{
+int maxcount=0;
+for(int i=0;i<n;++i)
+{
+int counts=0;
+for(int j=0;j<n;++j)
+{
+if(arr[j]==arr[i])
+++counts;
+}
+if(counts>maxcount){
+maxcount=counts;
+}
+return arr[i];
+}
+}
+ int sum = 0;
   for (int i=0;i<n;i++)
     sum=sum+arr[i];
   float avg = (float)sum/n;
