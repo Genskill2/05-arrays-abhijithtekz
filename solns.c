@@ -1,72 +1,48 @@
 #include <stdio.h>
 
-int max(const int arr[],int n){
-	int Max=arr[0];
-	for(int i=0;i<n;i++){
-		if(arr[i]>Max){
-			Max=arr[i];
-		}
-	}
-	return Max;
+int max(int arr[],int n)
+{
+for(int i=1;i<n;++i)
+{
+if(arr[0]<arr[i]){
+arr[0]=arr[i];
 }
-
-int min(const int arr[],int n){
-	int Min=arr[0];
-	for(int i=0;i<n;i++){
-		if(arr[i]<Min){
-			Min=arr[i];
-		}
-	}
-	return Min;
 }
-
-float average(const int arr[],int n){
-	float sum=0.0;
-	for(int i=0;i<n;i++){
-		sum+=arr[i];
-	}
-	return sum/(float)n;
+return arr[0];
 }
+int mode(int arr[], int n){
+int maxcount=0;
+for(int i=0;i<n;++i){
+int counts=0;
 
-
-int mode(int arr[],int n){
-	int num,temp_num;
-	int count=0,temp_count=0;
-	// sort(arr,n);
-	int temp;
-	for(int i=0;i<n-1;i++){
-		for(int j=0;j<n-1;j++){
-			if(arr[j+1]<arr[j]){
-				temp=arr[j];
-				arr[j]=arr[j+1];
-				arr[j+1]=temp;
-			}
-		}
-	}
-	temp_num=arr[0];
-	for(int i=0;i<n;i++){
-		if(arr[i]==temp_num){
-			temp_count++;
-		}
-		else{
-			if(temp_count>count){
-				count=temp_count;
-				num=temp_num;
-			}
-			temp_num=arr[i];
-			temp_count=1;
-		}
-	}
-	if(temp_count>count){
-		count=temp_count;
-		num=temp_num;
-	}
-	return num;
+for(int j=0;j<n;++j){
+if(arr[j]==arr[i])
+++counts;
 }
-
-
-
-int factors(int num,int arr[]){
+if(counts>maxcount){
+maxcount=counts;
+}
+return arr[i];
+}
+}int min(int arr[],int n)
+{
+for(int i=1;i<n;i++)
+{
+if(arr[i]<arr[0]){
+arr[0]=arr[i];
+}
+}
+return arr[0];
+}float average(int arr[], int n)
+{
+float sum=0.0;
+ for(int i=0;i<n;++i){
+ sum=sum+arr[i];
+ }
+float average=sum/n;
+ 
+ return average;
+ }int factors(int num,int arr[]){
 	int prime=2,ref=0;
 	int count=0,index=0;
 	while(num!=1){
