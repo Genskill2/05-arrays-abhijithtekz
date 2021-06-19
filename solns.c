@@ -63,3 +63,4 @@ int factors(int n, int array[])
 	}
 	return j;
 }
+
