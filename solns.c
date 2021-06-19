@@ -1,5 +1,6 @@
 /* Enter your solutions in this file */
 #include <stdio.h>
+#include <stdio.h>
 int max(int array[],int n)
 {
 	int max=array[0];
@@ -63,4 +64,3 @@ int factors(int n, int array[])
 	}
 	return j;
 }
-
